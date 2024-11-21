@@ -130,7 +130,6 @@ def main():
     
     st.markdown("""
     This is a demo on how LLaMA3 can automatically summarize meeting transcripts.
-    Upload a `.txt` file containing your meeting transcript, and the AI will generate a concise summary.
     """)
     
     # Sidebar for Configuration
