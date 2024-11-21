@@ -6,6 +6,10 @@ __pycache__/
 
 .DS_Store
 
+*.txt
+
+
+
 # C extensions
 *.so
 
