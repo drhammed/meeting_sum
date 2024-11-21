@@ -12,9 +12,6 @@ antiorm==1.2.1
 appnope==0.1.4
 asgiref==3.8.1
 asttokens==2.4.1
-async-timeout==4.0.3
-asyncer==0.0.2
-asyncio==3.4.3
 attrs==24.2.0
 backoff==2.2.1
 backports.tarfile==1.2.0
