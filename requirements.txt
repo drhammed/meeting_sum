@@ -18,7 +18,6 @@ backports.tarfile==1.2.0
 bcrypt==4.2.0
 beautifulsoup4==4.12.3
 bidict==0.23.1
-biopython==1.83
 blinker==1.8.2
 blis==1.0.1
 boto3==1.34.115
@@ -173,7 +172,6 @@ netCDF4==1.7.2
 networkx==3.3
 nh3==0.2.18
 nltk==3.8.1
-numpy
 oauthlib==3.2.2
 onnxruntime==1.19.2
 openai==1.42.0
