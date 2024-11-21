@@ -1,24 +1,53 @@
 # app.py
 
-import streamlit as st
+from __future__ import print_function
 import os
 import re
+import fitz  # PyMuPDF
 import json
+import streamlit as st
+from docx import Document
+import configparser
+from GDriveOps.GDhandler import GoogleDriveHandler
 import nltk
 import string
+from groq import Groq
+from langchain.chains import LLMChain, RetrievalQA
 import warnings
-from io import BytesIO
-from langchain.chains import LLMChain
+from langchain.memory import ConversationBufferMemory
+from langchain.schema import HumanMessage
 from langchain.prompts import ChatPromptTemplate
-from langchain.schema import SystemMessage, HumanMessagePromptTemplate
+from langchain.chains import ConversationChain
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables.base import Runnable
+from langchain_core.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    MessagesPlaceholder,
+)
+from langchain_core.messages import SystemMessage
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-from sklearn.preprocessing import StandardScaler
+from langchain.chains.conversation.memory import ConversationBufferWindowMemory
+from langchain_groq import ChatGroq
+import uuid
+from datetime import datetime, timedelta
+from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
-from langchain_groq import ChatGroq  
+from sklearn.cluster import KMeans
+import numpy as np
+import pandas as pd
+import voyageai
+from langchain_voyageai import VoyageAIEmbeddings
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import silhouette_score
+from rouge_score import rouge_scorer
+from io import BytesIO
+import zipfile  # New import for ZIP functionality
 
+# Initialize NLTK components
+from nltk.stem import WordNetLemmatizer
 
 # Initialize NLTK components
 nltk.download('punkt_tab')
