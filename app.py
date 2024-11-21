@@ -44,7 +44,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import silhouette_score
 from rouge_score import rouge_scorer
 from io import BytesIO
-import zipfile  # New import for ZIP functionality
+import zipfile  
 
 # Initialize NLTK components
 from nltk.stem import WordNetLemmatizer
@@ -99,7 +99,7 @@ class TranscriptSummarizer:
                 groq_api_key=GROQ_API_KEY, 
                 model=model_mapping[selected_model], 
                 temperature=0.02, 
-                max_tokens=500,  # Adjust as needed
+                max_tokens=500,  
                 timeout=60, 
                 max_retries=2
             )
@@ -119,17 +119,17 @@ class TranscriptSummarizer:
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         chunks = text_splitter.split_text(text)
         
-        # For simplicity, skip embedding and clustering in the prototype
+        # For simplicity, I'll skip embedding and clustering in the prototype
         # Directly send the entire text to the model
         summary = conversation.run({"text": text})
         
         return summary
 
 def main():
-    st.title("AI Meeting Summarization with LLaMA 3 via Groq AI")
+    st.title("AI Meeting Summarization with LLaMA 3")
     
     st.markdown("""
-    This is a demo on how LLaMA3 via Groq AI can automatically summarize meeting transcripts.
+    This is a demo on how LLaMA3 can automatically summarize meeting transcripts.
     Upload a `.txt` file containing your meeting transcript, and the AI will generate a concise summary.
     """)
     
