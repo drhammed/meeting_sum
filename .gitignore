@@ -8,6 +8,10 @@ __pycache__/
 
 *.txt
 
+*.ipynb
+
+*.png
+
 
 
 # C extensions
